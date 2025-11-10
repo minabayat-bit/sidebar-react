@@ -10,26 +10,32 @@ const Sidebar = () => {
     <div className="flex justify-center items-center">
       <div
         className={clsx(
-          "h-screen fixed top-0 left-0 bg-blue-500 text-white transition-all duration-300 ",
+          "h-screen fixed top-0 left-0 transition-all duration-300 bg-white",
           open ? "w-80" : "w-0 overflow-hidden"
         )}
       >
-        <div className="p-4 text-xl font-bold">Sidebar</div>
-        <ul className="space-y-4 p-4">
+        <div className="flex flex-row justify-between p-4 ">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg"
+            alt="React Logo"
+            className="w-8"
+          />
+          <span className="text-red-700 font-bold text-2xl hover:fill-red-600">
+            X
+          </span>
+        </div>
+
+        <ul className="space-y-4 p-">
           {navItems.map((item) => (
-            <li key={item} className="hover:text-yellow-300 cursor-pointer">
+            <li
+              key={item}
+              className="hover:bg-blue-100 transition-all duration-500 p-4 text-2xl text-gray-500 w-full cursor-pointer"
+            >
               {item}
             </li>
           ))}
         </ul>
-        <div className="absolute bottom-4 left-4 flex gap-4">
-          <a href="#" className="hover:text-yellow-300">
-            GitHub
-          </a>
-          <a href="#" className="hover:text-yellow-300">
-            Twitter
-          </a>
-        </div>
+        <div className="absolute bottom-4 left-4 flex gap-4"></div>
       </div>
 
       <div className="flex flex-col justify-center mt-40 items-center space-y-3 p-4">
@@ -40,7 +46,7 @@ const Sidebar = () => {
         />
         <button
           onClick={() => setOpen(!open)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-md"
+          className="tracking-[5px] border-2 hover:text-white px-4 py-1 cursor-pointer hover:bg-black transition-all duration-500 rounded-xl"
         >
           TOGGLE MENU
         </button>
